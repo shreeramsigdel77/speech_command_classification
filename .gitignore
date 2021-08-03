@@ -1,0 +1,7 @@
+**/__init__.py
+__pycache__/**
+audio_test.py
+log_dir/**
+saved_checkpoints/**
+speech_commands_v0.02.*
+SpeechCommands/**
