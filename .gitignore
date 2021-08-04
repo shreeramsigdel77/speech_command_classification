@@ -5,3 +5,4 @@ log_dir/**
 saved_checkpoints/**
 speech_commands_v0.02.*
 SpeechCommands/**
+**.png

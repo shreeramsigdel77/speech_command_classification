@@ -100,9 +100,10 @@ class SubsetSC(SPEECHCOMMANDS):
 # Create training and testing split of the data. We do not use validation in this tutorial.
 train_set = SubsetSC("training")
 # test_set = SubsetSC("testing")
-test_set = SubsetSC("validation")
+# test_set = SubsetSC("validation")
+test_set = SubsetSC("training")
 
-waveform, sample_rate, label, speaker_id, utterance_number = test_set[0]
+waveform, sample_rate, label, speaker_id, utterance_number = train_set[0]
 
 
 ######################################################################
@@ -290,12 +291,12 @@ scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.1)  # red
 from pyutilities import load_ckp
 
 start_epoch = 0
-ckp_path ="/home/nabu/workspace/audio_classification/speech_command_recognition_with_torchaudio/saved_checkpoints/checkpoint_50.pth"
+ckp_path ="/home/nabu/workspace/audio_classification/speech_command_classification/saved_checkpoints/checkpoint_50.pth"
 #load existing model
 if os.path.exists(ckp_path):
     model, optimizer, start_epoch = load_ckp(ckp_path, model, optimizer)
 
-print(start_epoch)
+# print("start",start_epoch)
 #if you want to contunie training you can use starting epoch as: start_epoch+1
 
 def confusion_matrixxx(y_actual,y_predict):
